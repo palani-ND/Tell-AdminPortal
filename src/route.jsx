@@ -26,7 +26,6 @@ const ProtectedRoute = () => {
 };
 
 const Login = lazy(() => import('./pages/login'));
-const SignUp = lazy(() => import('./pages/signup'));
 const Home = lazy(() => import('./pages/home/index'));
 
 export const routes = createBrowserRouter(
@@ -34,7 +33,6 @@ export const routes = createBrowserRouter(
 		<>
 			<Route>
 				<Route path="/" element={<Login />} />
-				<Route path="/sign-up" element={<SignUp />} />
 
 				<Route element={<ProtectedRoute />}>
 					<Route path="/home" element={<Home />} />

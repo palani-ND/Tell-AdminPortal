@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Container, Grid, IconButton, InputAdornment, Stack, TextField } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ModelHeader } from '../../elements/textStyles';
 import { PrimaryButton } from '../../elements/buttonStyles';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -125,7 +125,7 @@ const LoginScreen = () => {
 				<Grid item md={6} sm={12} lg={6} xs={12}>
 					<Grid container xs={12}>
 						<Grid item md={8} xs={12} direction="column" rowGap={'20px'}>
-							<ModelHeader>LOGIN</ModelHeader>
+							<ModelHeader> ADMIN LOGIN</ModelHeader>
 							<form
 								onSubmit={handleSubmit(onSubmit)}
 								style={{
@@ -185,16 +185,6 @@ const LoginScreen = () => {
 									Login
 								</PrimaryButton>
 							</form>
-							<Stack
-								direction={'row'}
-								alignItems={'center'}
-								justifyContent={'space-around'}
-							>
-								<p style={{ fontSize: '17px' }}>Don't have an account</p>
-								<Link to={'sign-up'} style={{ fontSize: '17px' }}>
-									Signup
-								</Link>
-							</Stack>
 						</Grid>
 					</Grid>
 				</Grid>
