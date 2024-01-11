@@ -1,11 +1,4 @@
-import {
-	Container,
-	Grid,
-	IconButton,
-	InputAdornment,
-	Stack,
-	TextField,
-} from '@mui/material';
+import { Container, Grid, IconButton, InputAdornment, Stack, TextField } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ModelHeader } from '../../elements/textStyles';
@@ -70,47 +63,42 @@ const SignUpScreen = () => {
 		},
 	});
 
-	const { mutate: signUpMutate, isLoading: signUpLoading } = useMutation(
-		signup,
-		{
-			onSuccess: (response) => {
-				if (response?.data?.responseObj?.responseCode === 200) {
-					const token =
-                        response?.data?.responseObj?.responseDataParams?.data
-                        	?.token;
-					setAlert({
-						open: true,
-						severity: 'success',
-						message: response?.data?.responseObj?.responseMessage,
-					});
-					setTimeout(() => {
-						localStorage.setItem('token', token);
-						navigate('/home');
-						setAlert({
-							open: false,
-							severity: '',
-							message: '',
-						});
-					}, 1000);
-				} else {
-					setAlert({
-						open: true,
-						severity: 'warning',
-						message: response?.data?.responseObj?.responseMessage,
-					});
-				}
-			},
-
-			onError: (error) => {
+	const { mutate: signUpMutate, isLoading: signUpLoading } = useMutation(signup, {
+		onSuccess: (response) => {
+			if (response?.data?.responseObj?.responseCode === 200) {
+				const token = response?.data?.responseObj?.responseDataParams?.data?.token;
 				setAlert({
 					open: true,
-					severity: 'error',
-					message: 'Something went wrong...!',
+					severity: 'success',
+					message: response?.data?.responseObj?.responseMessage,
 				});
-				return error;
-			},
-		}
-	);
+				setTimeout(() => {
+					localStorage.setItem('token', token);
+					navigate('/home');
+					setAlert({
+						open: false,
+						severity: '',
+						message: '',
+					});
+				}, 1000);
+			} else {
+				setAlert({
+					open: true,
+					severity: 'warning',
+					message: response?.data?.responseObj?.responseMessage,
+				});
+			}
+		},
+
+		onError: (error) => {
+			setAlert({
+				open: true,
+				severity: 'error',
+				message: 'Something went wrong...!',
+			});
+			return error;
+		},
+	});
 
 	const onSubmit = (data) => {
 		signUpMutate(data);
@@ -139,22 +127,12 @@ const SignUpScreen = () => {
 				flexWrap={'wrap'}
 			>
 				<Grid item md={6} lg={6} sm={12} xs={12}>
-					<img
-						style={{ width: '90%' }}
-						src={SignupScreenimage}
-						alt="Image"
-					/>
+					<img style={{ width: '90%' }} src={SignupScreenimage} alt="Image" />
 				</Grid>
 
 				<Grid item md={6} sm={12} lg={6} xs={12}>
 					<Grid container xs={12} justifyContent="center">
-						<Grid
-							item
-							md={8}
-							xs={12}
-							direction="column"
-							rowGap={'20px'}
-						>
+						<Grid item md={8} xs={12} direction="column" rowGap={'20px'}>
 							<ModelHeader>SIGNUP</ModelHeader>
 							<form
 								onSubmit={handleSubmit(onSubmit)}
@@ -173,9 +151,7 @@ const SignUpScreen = () => {
 										variant="outlined"
 										fullWidth
 									/>
-									<ErrorToast
-										error={errors.fullName?.message}
-									/>
+									<ErrorToast error={errors.fullName?.message} />
 								</Stack>
 								<Stack>
 									<TextField
@@ -186,9 +162,7 @@ const SignUpScreen = () => {
 										variant="outlined"
 										fullWidth
 									/>
-									<ErrorToast
-										error={errors?.email?.message}
-									/>
+									<ErrorToast error={errors?.email?.message} />
 								</Stack>
 
 								<Stack>
@@ -204,22 +178,18 @@ const SignUpScreen = () => {
 										maxLength={10}
 										onKeyDown={(e) =>
 											(e.key === 'e' ||
-                                                e.key === '.' ||
-                                                e.key === '-' ||
-                                                e.key === ',') &&
-                                            e.preventDefault()
+												e.key === '.' ||
+												e.key === '-' ||
+												e.key === ',') &&
+											e.preventDefault()
 										}
 									/>
-									<ErrorToast
-										error={errors.phoneNumber?.message}
-									/>
+									<ErrorToast error={errors.phoneNumber?.message} />
 								</Stack>
 
 								<Stack>
 									<TextField
-										type={
-											showPassword ? 'text' : 'password'
-										}
+										type={showPassword ? 'text' : 'password'}
 										label="Password"
 										{...register('password', {
 											required: true,
@@ -231,9 +201,7 @@ const SignUpScreen = () => {
 												<InputAdornment position="end">
 													<IconButton
 														onClick={() =>
-															setShowPassword(
-																!showPassword
-															)
+															setShowPassword(!showPassword)
 														}
 														edge="end"
 													>
@@ -247,9 +215,7 @@ const SignUpScreen = () => {
 											),
 										}}
 									/>
-									<ErrorToast
-										error={errors.password?.message}
-									/>
+									<ErrorToast error={errors.password?.message} />
 								</Stack>
 								<PrimaryButton
 									sx={{ mt: 1 }}
@@ -257,9 +223,9 @@ const SignUpScreen = () => {
 									variant="contained"
 									color="primary"
 									fullWidth
-									style={{fontSize:'18px'}}
+									style={{ fontSize: '18px' }}
 								>
-                                    Signup
+									Signup
 								</PrimaryButton>
 							</form>
 							<Stack
@@ -268,8 +234,8 @@ const SignUpScreen = () => {
 								alignItems={'center'}
 								justifyContent={'space-around'}
 							>
-								<Link to={'/'} style={{ fontWeight: 'bold',fontSize:'17px' }}>
-                                    Back to login
+								<Link to={'/'} style={{ fontWeight: 'bold', fontSize: '17px' }}>
+									Back to login
 								</Link>
 							</Stack>
 						</Grid>

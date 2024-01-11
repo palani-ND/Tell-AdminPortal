@@ -19,7 +19,7 @@ import LoginScreenimage from '../../asset/image/Loginscreen.svg';
 const LoginScreen = () => {
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
-	const { alert, setAlert,} = useContext(Context);
+	const { alert, setAlert } = useContext(Context);
 
 	const validationSchema = yup.object().shape({
 		email: yup
@@ -180,7 +180,7 @@ const LoginScreen = () => {
 									variant="contained"
 									color="primary"
 									fullWidth
-									style={{fontSize:'18px'}}
+									style={{ fontSize: '18px' }}
 								>
 									Login
 								</PrimaryButton>
@@ -190,8 +190,10 @@ const LoginScreen = () => {
 								alignItems={'center'}
 								justifyContent={'space-around'}
 							>
-								<p style={{fontSize:'17px'}}>Don't have an account</p>
-								<Link to={'sign-up'} style={{fontSize:'17px'}}>Signup</Link>
+								<p style={{ fontSize: '17px' }}>Don't have an account</p>
+								<Link to={'sign-up'} style={{ fontSize: '17px' }}>
+									Signup
+								</Link>
 							</Stack>
 						</Grid>
 					</Grid>
