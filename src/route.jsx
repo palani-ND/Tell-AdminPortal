@@ -28,7 +28,7 @@ const ProtectedRoute = () => {
 							display: isSmallScreen ? 'none' : 'flex',
 							backgroundColor: '#F9F6EE',
 							width: '100%',
-							minHeight:'100vh'
+							minHeight: '100vh',
 						}}
 					>
 						<Sidebar />

@@ -12,10 +12,10 @@ const Sidebar = () => {
 					letterSpacing: '1px',
 					display: 'flex',
 					justifyContent: 'center',
-					textAlign:'center',
-					alignItems:'center',
+					textAlign: 'center',
+					alignItems: 'center',
 					backgroundColor: 'gray',
-					height:'120px'
+					height: '120px',
 				}}
 			>
 				Tell
@@ -34,7 +34,7 @@ const Sidebar = () => {
 							textDecoration: 'none',
 							// backgroundColor: 'green',
 						}}
-						activeStyle={{ color: '#A6B50C', }}
+						activeStyle={{ color: '#A6B50C' }}
 					>
 						<div
 							style={{
