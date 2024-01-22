@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HomeScreen = () => {
-	return <>Admin Home page</>;
+const Home = () => {
+	return <>Home Content</>;
 };
 
-export default HomeScreen;
+export default Home;
