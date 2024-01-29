@@ -10,7 +10,7 @@ const UserDataTable = ({ data }) => {
 			field: 'name',
 			headerName: 'Name',
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 			width: 220,
 			// flex: 1,
 		},
@@ -20,7 +20,7 @@ const UserDataTable = ({ data }) => {
 			width: 200,
 			// flex: 1,
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 		},
 		{
 			field: 'Department',
@@ -28,28 +28,28 @@ const UserDataTable = ({ data }) => {
 			width: 300,
 			// flex: 1,
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 		},
 		{
 			field: 'Level',
 			headerName: 'Level',
 			width: 150,
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 		},
 		{
 			field: 'Attempts',
 			headerName: 'Attempt',
 			width: 150,
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 		},
 		{
 			field: 'Status',
 			headerName: 'Status',
 			width: 150,
 			headerAlign: 'center',
-			align:'center',
+			align: 'center',
 		},
 	];
 
@@ -79,7 +79,7 @@ const UserDataTable = ({ data }) => {
 						'& .MuiDataGrid-columnHeaderTitle': {
 							fontWeight: 'bold',
 							color: '#808080',
-							fontSize:'18px',
+							fontSize: '18px',
 						},
 					}}
 				/>
