@@ -4,7 +4,6 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 export const Sidebardata = [
-	
 	{
 		title: 'Dashboard',
 		icon: <DashboardOutlinedIcon />,

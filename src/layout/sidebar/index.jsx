@@ -16,7 +16,7 @@ const Sidebar = () => {
 			<img
 				style={{
 					width: '100%',
-					justifyContent:'center',
+					justifyContent: 'center',
 				}}
 				src={Logo}
 				alt="Image"
