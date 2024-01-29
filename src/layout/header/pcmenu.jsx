@@ -6,7 +6,6 @@ import {
 	Grid,
 	Stack,
 	Tooltip,
-	// Chip,
 	Paper,
 	MenuList,
 	ListItemText,

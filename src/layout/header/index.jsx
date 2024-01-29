@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useContext, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -6,14 +7,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Drawer, Typography, useMediaQuery } from '@mui/material';
 import BigScreenMenu from './pcmenu';
 import Sidebar from '../sidebar';
+import { Context } from '../../context';
 
 const Header = () => {
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+	const { selectedTitle } = useContext(Context);
 
 	const toggleDrawer = () => {
 		setIsDrawerOpen(!isDrawerOpen);
 	};
+
 	return (
 		<>
 			<AppBar position="static">
@@ -29,7 +33,7 @@ const Header = () => {
 							<MenuIcon />
 						</IconButton>
 					)}
-					<Typography
+					{/* <Typography
 						variant="h4"
 						fontWeight={'800'}
 						style={{
@@ -41,7 +45,9 @@ const Header = () => {
 						}}
 					>
 						Tell
-					</Typography>
+					</Typography> */}
+
+					<Typography variant="h6">{selectedTitle}</Typography>
 					<Box sx={{ flexGrow: 1 }} />
 					<Box
 						sx={{
@@ -57,7 +63,7 @@ const Header = () => {
 				</Toolbar>
 			</AppBar>
 			{isSmallScreen && (
-				<Drawer open={isDrawerOpen} onClose={toggleDrawer}>
+				<Drawer open={isDrawerOpen} onClose={toggleDrawer} onClick={toggleDrawer}>
 					<div style={{ width: '200px' }}>
 						<Sidebar />
 					</div>

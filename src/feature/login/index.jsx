@@ -56,7 +56,7 @@ const LoginScreen = () => {
 				});
 				setTimeout(() => {
 					localStorage.setItem('token', token);
-					navigate('/home');
+					navigate('/dashboard');
 					setAlert({
 						open: false,
 						severity: '',
@@ -90,7 +90,7 @@ const LoginScreen = () => {
 		setAlert({ ...alert, open: false });
 
 		if (localStorage.getItem('token')) {
-			navigate('/home');
+			navigate('/dashboard');
 		}
 	}, []);
 

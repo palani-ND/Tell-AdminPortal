@@ -1,44 +1,46 @@
+/* eslint-disable no-unused-vars */
 import { Typography } from '@mui/material';
 import { Sidebardata } from './sidebardata';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../../context';
+import Logo from '../../asset/image/logo.png';
 const Sidebar = () => {
+	const location = useLocation();
+	const { setSelectedTitle } = useContext(Context);
+	const handleNavLinkClick = (title) => {
+		setSelectedTitle(title);
+	};
 	return (
 		<div style={{ width: '100%' }}>
-			<Typography
-				variant="h3"
-				fontWeight={'800'}
+			<img
 				style={{
-					color: '#FFFFFF',
-					letterSpacing: '1px',
-					display: 'flex',
-					justifyContent: 'center',
-					textAlign: 'center',
-					alignItems: 'center',
-					backgroundColor: 'gray',
-					height: '120px',
+					width: '100%',
+					justifyContent:'center',
 				}}
-			>
-				Tell
-			</Typography>
+				src={Logo}
+				alt="Image"
+			/>
+
 			{Sidebardata.map((item, index) => {
 				return (
 					<NavLink
 						to={item.link}
 						key={index}
+						onClick={() => handleNavLinkClick(item.title)}
 						style={{
 							display: 'flex',
-							color: 'rgb(61, 60, 60)',
-							padding: '10px 15px',
+							padding: '20px 5px',
+							marginTop: '1px',
 							gap: '15px',
-							marginTop: '10px',
 							textDecoration: 'none',
-							// backgroundColor: 'green',
+							backgroundColor: item.link === location.pathname ? '#E9E0EE' : '',
+							color: item.link === location.pathname ? '#9367AE' : 'black',
 						}}
-						activeStyle={{ color: '#A6B50C' }}
 					>
 						<div
 							style={{
-								fontSize: '18px',
+								fontSize: '20px',
 								flex: '30%',
 								display: 'grid',
 								justifyContent: 'center',

@@ -10,6 +10,7 @@ import { Context } from './context';
 const App = () => {
 	const queryClient = new QueryClient();
 	const [alert, setAlert] = useState({ open: false, severity: 'success', message: '' });
+	const [selectedTitle, setSelectedTitle] = useState('');
 
 	return (
 		<Grid
@@ -23,6 +24,8 @@ const App = () => {
 					value={{
 						alert,
 						setAlert,
+						selectedTitle,
+						setSelectedTitle,
 					}}
 				>
 					<QueryClientProvider client={queryClient}>
