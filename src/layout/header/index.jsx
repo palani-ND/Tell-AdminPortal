@@ -4,10 +4,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, Drawer, Typography, useMediaQuery } from '@mui/material';
-import BigScreenMenu from './pcmenu';
+import { Box, Drawer,  useMediaQuery } from '@mui/material';
 import Sidebar from '../sidebar';
 import { Context } from '../../context';
+import { PageHeader } from '../../elements/textStyles';
 
 const Header = () => {
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
@@ -20,7 +20,7 @@ const Header = () => {
 
 	return (
 		<>
-			<AppBar position="static">
+			<AppBar position="static" sx={{backgroundColor:'transparent'}} elevation={0}>
 				<Toolbar>
 					{isSmallScreen && (
 						<IconButton
@@ -33,35 +33,13 @@ const Header = () => {
 							<MenuIcon />
 						</IconButton>
 					)}
-					{/* <Typography
-						variant="h4"
-						fontWeight={'800'}
-						style={{
-							color: '#FFFFFF',
-							letterSpacing: '1px',
-						}}
-						sx={{
-							display: { sm: 'block', xs: 'block', md: 'none' }, // Show on small screens
-						}}
-					>
-						Tell
-					</Typography> */}
 
-					<Typography variant="h6">{selectedTitle}</Typography>
+					<PageHeader>{selectedTitle}</PageHeader>
 					<Box sx={{ flexGrow: 1 }} />
-					<Box
-						sx={{
-							display: 'flex',
-							alignItems: 'center',
-							textAlign: 'center',
-							justifyContent: 'center',
-							columnGap: { md: '60px', sm: '10px' },
-						}}
-					>
-						<BigScreenMenu />
-					</Box>
+					
 				</Toolbar>
 			</AppBar>
+
 			{isSmallScreen && (
 				<Drawer open={isDrawerOpen} onClose={toggleDrawer} onClick={toggleDrawer}>
 					<div style={{ width: '200px' }}>
