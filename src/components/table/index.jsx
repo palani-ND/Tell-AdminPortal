@@ -9,32 +9,47 @@ const UserDataTable = ({ data }) => {
 		{
 			field: 'name',
 			headerName: 'Name',
-			width: 200,
+			headerAlign: 'center',
+			align:'center',
+			width: 220,
+			// flex: 1,
 		},
 		{
 			field: 'Phone',
 			headerName: 'Phone',
 			width: 200,
+			// flex: 1,
+			headerAlign: 'center',
+			align:'center',
 		},
 		{
 			field: 'Department',
 			headerName: 'Department',
-			width: 200,
+			width: 300,
+			// flex: 1,
+			headerAlign: 'center',
+			align:'center',
 		},
 		{
 			field: 'Level',
 			headerName: 'Level',
-			width: 200,
+			width: 150,
+			headerAlign: 'center',
+			align:'center',
 		},
 		{
 			field: 'Attempts',
 			headerName: 'Attempt',
-			width: 200,
+			width: 150,
+			headerAlign: 'center',
+			align:'center',
 		},
 		{
 			field: 'Status',
 			headerName: 'Status',
-			width: 160,
+			width: 150,
+			headerAlign: 'center',
+			align:'center',
 		},
 	];
 
@@ -43,15 +58,30 @@ const UserDataTable = ({ data }) => {
 			<Paper
 				style={{
 					width: '100%',
-					padding: '5px',
-					boxShadow: '4px 6px 11px -3px rgba(0,0,0,0.66)',
+					boxShadow: 300,
+					height: '60vh',
+					borderRadius: '10px',
 				}}
 			>
 				<DataGrid
+					columnHeaderHeight={60}
+					rowHeight={50}
+					disableColumnFilter={true}
+					disableColumnMenu={true}
+					disableRowSelectionOnClick={true}
 					rows={data}
 					columns={columns}
-					pageSize={10}
-					sx={{ m: 1, fontSize: '17px' }}
+					sx={{
+						fontSize: '16px',
+						'& .MuiDataGrid-columnHeader': {
+							borderRadius: '10px',
+						},
+						'& .MuiDataGrid-columnHeaderTitle': {
+							fontWeight: 'bold',
+							color: '#808080',
+							fontSize:'18px',
+						},
+					}}
 				/>
 			</Paper>
 		</Box>
