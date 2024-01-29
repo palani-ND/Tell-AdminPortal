@@ -1,6 +1,16 @@
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
 
+export const PageHeader = styled(Typography)({
+	'&&&': {
+		color: '#9367AE',
+		fontSize: '29px',
+		fontWeight: 'bold',
+		textTransform: 'capitalize',
+
+	},
+});
+
 export const ModelHeader = styled(Typography)({
 	'&&&': {
 		color: 'grey',

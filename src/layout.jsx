@@ -19,7 +19,7 @@ const Layout = () => {
 					backgroundColor: '#F9F6EE',
 					width: '100%',
 					minHeight: '100vh',
-					boxShadow: '2px 0 5px rgba(0, 0, 0, 0.6)',
+					borderRight: '3px  solid #9367AE',
 				}}
 			>
 				<Sidebar />
