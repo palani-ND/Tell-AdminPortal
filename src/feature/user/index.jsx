@@ -132,11 +132,11 @@ const App = () => {
 			<div
 				style={{
 					display: 'flex',
-					flexWrap:'wrap',
+					flexWrap: 'wrap',
 					justifyContent: 'space-between',
 					alignItems: 'center',
 					marginBottom: '30px',
-					rowGap:'10px'
+					rowGap: '10px',
 				}}
 			>
 				<Search>

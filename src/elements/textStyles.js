@@ -7,7 +7,6 @@ export const PageHeader = styled(Typography)({
 		fontSize: '29px',
 		fontWeight: 'bold',
 		textTransform: 'capitalize',
-
 	},
 });
 

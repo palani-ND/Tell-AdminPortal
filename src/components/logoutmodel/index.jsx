@@ -19,9 +19,7 @@ const AlertDialog = ({ open, handleConfirm, handleClose }) => {
 				</DialogContent>
 				<DialogActions sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
 					<PrimaryButton onClick={handleClose}>no</PrimaryButton>
-					<SecondaryButton onClick={handleConfirm} >
-						yes
-					</SecondaryButton>
+					<SecondaryButton onClick={handleConfirm}>yes</SecondaryButton>
 				</DialogActions>
 			</Dialog>
 		</>
