@@ -5,6 +5,7 @@ import Header from './layout/header';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
+	
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
 	return (
 		<Grid container direction="row" width="100%" flexWrap="nowrap">

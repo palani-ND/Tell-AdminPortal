@@ -14,7 +14,7 @@ import Loader from '../../components/loader';
 import { useMutation } from 'react-query';
 import { CustomAlert } from '../../components/alert/index.jsx';
 import { Context } from '../../context';
-import LoginScreenimage from '../../asset/image/Loginscreen.svg';
+import LoginScreenimage from '../../asset/image/logo.png';
 
 const LoginScreen = () => {
 	const navigate = useNavigate();
@@ -112,20 +112,29 @@ const LoginScreen = () => {
 				justifyContent={'center'}
 				flexWrap={'wrap'}
 			>
-				<Grid item md={6} lg={6} sm={12} xs={12}>
+				<Grid
+					item
+					md={8}
+					sm={12}
+					xs={12}
+					container
+					justifyContent={{ md: 'flex-start', xs: 'center' }}
+					alignItems="center"
+					display={'flex'}
+				>
 					<img
 						style={{
-							width: '90%',
+							width: '70%',
 						}}
 						src={LoginScreenimage}
 						alt="Image"
 					/>
 				</Grid>
 
-				<Grid item md={6} sm={12} lg={6} xs={12}>
+				<Grid item md={4} sm={12} xs={12}>
 					<Grid container xs={12}>
-						<Grid item md={8} xs={12} direction="column" rowGap={'20px'}>
-							<ModelHeader> ADMIN LOGIN</ModelHeader>
+						<Grid item md={12} xs={12} direction="column" rowGap={'20px'}>
+							<ModelHeader>LOGIN</ModelHeader>
 							<form
 								onSubmit={handleSubmit(onSubmit)}
 								style={{
