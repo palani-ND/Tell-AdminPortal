@@ -10,7 +10,7 @@ import { Context } from './context';
 const App = () => {
 	const queryClient = new QueryClient();
 	const [alert, setAlert] = useState({ open: false, severity: 'success', message: '' });
-	const [selectedTitle, setSelectedTitle] = useState('');
+	const [selectedTitle, setSelectedTitle] = useState(localStorage.getItem('title'));
 
 	return (
 		<Grid
