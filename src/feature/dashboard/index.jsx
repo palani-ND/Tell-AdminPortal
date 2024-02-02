@@ -8,15 +8,15 @@ const Dashboard = () => {
 				<Paper
 					sx={{
 						display: 'flex',
-						alignItems:'center',
+						alignItems: 'center',
 						justifyContent: 'center',
 						height: '150px',
 						borderRadius: '10px',
-						fontSize:'18px'
+						fontSize: '18px',
 					}}
 					elevation={5}
 				>
-					Upload your csv file 
+					Upload your csv file
 				</Paper>
 			</Box>
 		</>
