@@ -15,7 +15,6 @@ const Transition = ({ children, animate }) => {
 				{children}
 			</motion.div>
 		</AnimatePresence>
-
 	);
 };
 

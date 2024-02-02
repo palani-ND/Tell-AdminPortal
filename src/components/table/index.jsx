@@ -3,8 +3,7 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper } from '@mui/material';
 
-const CustomDataGrid = ({ data,cloumn }) => {
-
+const CustomDataGrid = ({ data, cloumn }) => {
 	const columns = cloumn.map((data) => {
 		const obj = {
 			field: data,
@@ -17,7 +16,8 @@ const CustomDataGrid = ({ data,cloumn }) => {
 	});
 
 	return (
-		<Paper elevation={9}
+		<Paper
+			elevation={9}
 			style={{
 				width: '100%',
 				height: '62vh',
@@ -38,7 +38,7 @@ const CustomDataGrid = ({ data,cloumn }) => {
 						fontWeight: 'bold',
 						color: '#664879',
 						fontSize: '18px',
-						textTransform: 'capitalize'
+						textTransform: 'capitalize',
 					},
 				}}
 			/>

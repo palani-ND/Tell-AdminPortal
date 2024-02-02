@@ -108,16 +108,18 @@ const Sidebar = () => {
 								</>
 							) : (
 								<>
-									<List sx={{padding:0}}>
-										<ListItemButton 
+									<List sx={{ padding: 0 }}>
+										<ListItemButton
 											sx={{
-												width: '100%', px: 0.5,py:1.7,
+												width: '100%',
+												px: 0.5,
+												py: 1.7,
 												display: 'flex',
 												justifyContent: 'space-between',
 												alignItems: 'center',
 											}}
-											onClick={() => setOpen(!open)}>
-										
+											onClick={() => setOpen(!open)}
+										>
 											<Typography
 												sx={{
 													fontWeight: 'bold',
@@ -135,9 +137,8 @@ const Sidebar = () => {
 											{open ? <ExpandLess /> : <ExpandMore />}
 										</ListItemButton>
 										<Collapse in={open} timeout="auto" unmountOnExit>
-											<List  disablePadding>
-												<ListItemButton 
-
+											<List disablePadding>
+												<ListItemButton
 													onClick={() => navigate(item.link[0])}
 												>
 													<ListItemIcon>
