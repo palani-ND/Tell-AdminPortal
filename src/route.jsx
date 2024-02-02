@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
 import Login from './pages/login';
 import Dashboard from './feature/dashboard/index';
 import User from './feature/user/index';
-import Quizans from './feature/Quizans/index';
+import Quizans from './feature/questionAndAnswer/index';
 import Settings from './feature/settings/index';
 import { useEffect } from 'react';
 
@@ -39,7 +39,7 @@ export const routes = createBrowserRouter(
 				<Route element={<ProtectedRoute />}>
 					<Route path="/dashboard" element={<MentionedDashboard />} />
 					<Route path="/user" element={<MentionedUser />} />
-					<Route path="/quizans" element={<MentionedQuestionans />} />
+					<Route path="/question_and_answer" element={<MentionedQuestionans />} />
 					<Route path="/settings" element={<MentionedSettings />} />
 				</Route>
 			</Route>
