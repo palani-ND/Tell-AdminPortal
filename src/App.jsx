@@ -1,11 +1,11 @@
 import { Grid, ThemeProvider } from '@mui/material';
-import { theme } from './theme';
-import { RouterProvider } from 'react-router-dom';
-import { routes } from './route';
 import { Suspense, useState } from 'react';
-import Loader from './components/loader';
+import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Context } from './context';
+import { theme } from './theme';
+import { routes } from './route';
+import Loader from './components/loader';
 
 const App = () => {
 	const queryClient = new QueryClient();

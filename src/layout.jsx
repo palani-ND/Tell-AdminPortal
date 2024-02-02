@@ -18,7 +18,6 @@ const Layout = () => {
 					display: isSmallScreen ? 'none' : 'flex',
 					backgroundColor: '#F9F6EE',
 					width: '20%',
-					minHeight: '100vh',
 					borderRight: '3px  solid #9367AE',
 				}}
 			>

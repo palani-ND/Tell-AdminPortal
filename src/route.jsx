@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { Navigate, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Context } from './context';
 import Layout from './layout';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard/index';
 import User from './pages/user/index';
 import QuestionAndAnswer from './pages/questionAndAnswer/index';
-import CsvUpload from './pages/csvupload/index';
+import FileUpload from './pages/fileupload/index';
 import Settings from './pages/settings/index';
-import { useContext, useEffect } from 'react';
-import { Context } from './context';
 
 const ProtectedRoute = () => {
 	const isAuthenticated = localStorage.getItem('token') ? true : false;
@@ -29,8 +29,8 @@ const Activetab = (WrappedComponent, componentName) => {
 
 const MentionedDashboard = Activetab(Dashboard, 'dashboard');
 const MentionedUser = Activetab(User, 'user');
-const MentionedQuestionans = Activetab(QuestionAndAnswer, 'Question & Answer');
-const MentionedCsvUpload = Activetab(CsvUpload, 'Upload file');
+const MentionedQuestionAndAnswer = Activetab(QuestionAndAnswer, 'Question & Answer');
+const MentionedFileUpload = Activetab(FileUpload, 'Upload file');
 const MentionedSettings = Activetab(Settings, 'Settings');
 
 export const routes = createBrowserRouter(
@@ -41,8 +41,8 @@ export const routes = createBrowserRouter(
 				<Route element={<ProtectedRoute />}>
 					<Route path="/dashboard" element={<MentionedDashboard />} />
 					<Route path="/user" element={<MentionedUser />} />
-					<Route path="/question_and_answer" element={<MentionedQuestionans />} />
-					<Route path="/csvupload" element={<MentionedCsvUpload />} />
+					<Route path="/question_and_answer" element={<MentionedQuestionAndAnswer />} />
+					<Route path="/fileupload" element={<MentionedFileUpload />} />
 					<Route path="/settings" element={<MentionedSettings />} />
 				</Route>
 			</Route>

@@ -12,8 +12,7 @@ import {
 } from '@mui/material';
 import { Sidebardata } from './sidebardata';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { Context } from '../../context';
+import { useState } from 'react';
 import logo from '../../asset/image/logo.png';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -23,10 +22,8 @@ import AlertDialog from '../../components/logoutmodel/index';
 
 const Sidebar = () => {
 	const location = useLocation();
-
-	const [isDialogOpen, setIsDialogOpen] = useState(false);
-
 	const navigate = useNavigate();
+	const [isDialogOpen, setIsDialogOpen] = useState(false);
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
@@ -63,17 +60,16 @@ const Sidebar = () => {
 				{Sidebardata.map((item, index) => {
 					return (
 						<>
-							{item.isSubData == false ? (
+							{item.isSubData === false ? (
 								<>
 									<NavLink
 										to={item.link}
 										key={index}
-										// onClick={() => handleNavLinkClick(item.title)}
 										style={{
 											display: 'flex',
 											justifyContent: 'space-around',
 											alignItems: 'center',
-											padding: item.isSubData == false && '14px 5px',
+											padding: item.isSubData == false && '14px 10px',
 											marginTop: '1px',
 											gap: item.isSubData == false && '10px',
 											textDecoration: 'none',
@@ -85,25 +81,23 @@ const Sidebar = () => {
 													: 'grey',
 										}}
 									>
-										<>
-											<div
-												style={{
-													fontSize: '20px',
-													width: '15%',
-												}}
-											>
-												{item.icon}
-											</div>
-											<div
-												style={{
-													fontSize: '18px',
-													width: '85%',
-													fontWeight: 'bold',
-												}}
-											>
-												{item.title}
-											</div>
-										</>
+										<div
+											style={{
+												fontSize: '20px',
+												width: '15%',
+											}}
+										>
+											{item.icon}
+										</div>
+										<div
+											style={{
+												fontSize: '18px',
+												width: '85%',
+												fontWeight: 'bold',
+											}}
+										>
+											{item.title}
+										</div>
 									</NavLink>
 								</>
 							) : (

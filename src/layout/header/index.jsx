@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
-import Sidebar from '../sidebar';
-import { Context } from '../../context';
 import { PageHeader } from '../../elements/textStyles';
+import { Context } from '../../context';
+import Sidebar from '../sidebar';
 
 const Header = () => {
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
