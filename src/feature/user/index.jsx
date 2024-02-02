@@ -1,15 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { PrimaryButton } from '../../elements/buttonStyles';
-import UserDataTable from '../../components/table/index';
+import CustomDataGrid from '../../components/table/index';
 // import UserForm from './userform';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-// import Popup from 'reactjs-popup';
+import { Box, Grid, IconButton, InputAdornment, Tab, Tabs, TextField } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { motion, AnimatePresence } from 'framer-motion';
+import Transition from '../../components/transition';
+
 
 const App = () => {
-	const [open, setOpen] = useState(false);
+	const [isNurse, setIsNurse] = useState(2);
+
+	const handleChange = (event, newValue) => {
+		setIsNurse(newValue);
+	};
+
+	const cloumn = ['name', 'Phone', 'Department', 'Level', 'Status', 'Attempts'];
+
 	const userData = [
 		{
 			id: '1',
@@ -85,70 +96,66 @@ const App = () => {
 		},
 	];
 
-	const handleAddUserClick = () => {
-		setOpen(true);
-	};
-
-	// const handleUserFormClose = () => {
-	// 	setOpen(false);
-	// };
-
-	const Search = styled('div')(({ theme }) => ({
-		position: 'relative',
-		borderRadius: theme.shape.borderRadius,
-		border: '1px solid #D1C9D6',
-		backgroundColor: alpha(theme.palette.common.white, 0.15),
-		'&:hover': {
-			backgroundColor: alpha(theme.palette.common.white, 0.25),
-		},
-		marginLeft: 0,
-		width: '100%',
-		[theme.breakpoints.up('sm')]: {
-			marginLeft: theme.spacing(1),
-			width: 'auto',
-		},
-	}));
-	const SearchIconWrapper = styled('div')(({ theme }) => ({
-		padding: theme.spacing(0, 2),
-		height: '100%',
-		position: 'absolute',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-	}));
-
-	const StyledInputBase = styled(InputBase)(({ theme }) => ({
-		color: 'inherit',
-		width: '100%',
-		'& .MuiInputBase-input': {
-			padding: theme.spacing(1, 1, 1, 0),
-			paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-			transition: theme.transitions.create('width'),
-		},
-	}));
-
 	return (
-		<>
-			<div
-				style={{
-					display: 'flex',
-					flexWrap: 'wrap',
-					justifyContent: 'space-between',
-					alignItems: 'center',
-					marginBottom: '30px',
-					rowGap: '10px',
-				}}
+		<Grid container width={'100%'} flexDirection={'column'} rowGap={3}>
+
+			<Grid item
+				width={'100%'}
+				flexWrap={'wrap'}
+				alignItems={'center'}
+				justifyContent={'space-between'}
+				display={'flex'}
 			>
-				<Search>
-					<SearchIconWrapper>
-						<SearchIcon />
-					</SearchIconWrapper>
-					<StyledInputBase placeholder="Search…" />
-				</Search>
-				<PrimaryButton onClick={handleAddUserClick}>Add new User</PrimaryButton>
-			</div>
-			<UserDataTable data={userData} />
-		</>
+				<Box>
+					<Tabs
+						value={isNurse}
+						onChange={handleChange}
+						textColor="primary"
+						indicatorColor="primary"
+						aria-label="primary tabs example"
+					>
+						<Tab
+							value={1}
+							sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
+							label="Nurses"
+						/>
+						<Tab
+							value={2}
+							sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
+							label="Admins"
+						/>
+					</Tabs>
+				</Box>
+				{isNurse == 2 &&
+					<Transition animate={isNurse}>
+						<PrimaryButton><AddIcon />  Add admin</PrimaryButton>
+					</Transition>
+				}
+
+			</Grid>
+			<Transition animate={isNurse}>
+
+
+
+				<Grid item width={'100%'} rowGap={2} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} display={'flex'}>
+					<TextField sx={{ alignSelf: 'flex-start' }}
+						variant='outlined'
+						size='small'
+						placeholder="Search…"
+						InputProps={{
+							startAdornment: (
+								<InputAdornment position="start">
+									<SearchIcon />
+								</InputAdornment>
+							),
+						}} />
+
+					<CustomDataGrid cloumn={cloumn} data={userData} />
+
+				</Grid>
+			</Transition>
+
+		</Grid>
 	);
 };
 

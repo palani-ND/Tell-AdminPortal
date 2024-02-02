@@ -3,21 +3,19 @@ import styled from 'styled-components';
 
 export const PrimaryButton = styled(Button)({
 	'&&&': {
-		padding: '13px 30px',
+		padding: '0px 30px',
 		backgroundColor: '#9367AE',
 		borderRadius: '10px',
-		fontFamily: 'Poppins',
 		fontSize: '15px',
 		fontWeight: '700',
 		textAlign: 'center',
 		color: '#ffffff',
 		height: '40px',
 		'&:hover': {
-			backgroundColor: '#CA9BE6',
-			color: '#ffffff',
+			backgroundColor: '#a885be',
+			color: '#e5e5e5',
 		},
-		textTransform: 'capitalize',
-		letterSpacing: '2px',
+		textTransform: 'none',
 	},
 });
 

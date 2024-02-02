@@ -7,6 +7,7 @@ const ProtectedRoute = () => {
 	return <>{isAuthenticated === true ? <Layout /> : <Navigate to="/" />}</>;
 };
 
+
 import Login from './pages/login';
 import Dashboard from './feature/dashboard/index';
 import User from './feature/user/index';
