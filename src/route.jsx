@@ -8,10 +8,10 @@ const ProtectedRoute = () => {
 };
 
 import Login from './pages/login';
-import Dashboard from './feature/dashboard/index';
-import User from './feature/user/index';
-import Quizans from './feature/questionAndAnswer/index';
-import Settings from './feature/settings/index';
+import Dashboard from './pages/dashboard/index';
+import User from './pages/user/index';
+import Quizans from './pages/questionAndAnswer/index';
+import Settings from './pages/settings/index';
 import { useEffect } from 'react';
 
 const Activetab = (WrappedComponent, componentName) => {

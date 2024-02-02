@@ -17,7 +17,7 @@ const Layout = () => {
 				sx={{
 					display: isSmallScreen ? 'none' : 'flex',
 					backgroundColor: '#F9F6EE',
-					width: '100%',
+					width: '20%',
 					minHeight: '100vh',
 					borderRight: '3px  solid #9367AE',
 				}}
@@ -33,7 +33,7 @@ const Layout = () => {
 				lg={10}
 				container
 				direction="column"
-				width="100%"
+				width="80%"
 				flexWrap="nowrap"
 			>
 				<Grid>
