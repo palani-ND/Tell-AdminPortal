@@ -19,7 +19,7 @@ export const Sidebardata = [
 	{
 		title: 'Q & A',
 		icon: <DescriptionOutlinedIcon />,
-		link: '/question_and_answer',
+		link: ['/question_and_answer', '/csvupload'],
 		isSubData: true,
 	},
 	{

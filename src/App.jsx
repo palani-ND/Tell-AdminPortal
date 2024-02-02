@@ -13,12 +13,7 @@ const App = () => {
 	const [selectedTitle, setSelectedTitle] = useState(localStorage.getItem('title'));
 
 	return (
-		<Grid
-			sx={{
-				height: '97.60vh',
-				width: '100%',
-			}}
-		>
+		<Grid>
 			<Suspense fallback={<Loader circle={true} load={true} />}>
 				<Context.Provider
 					value={{
