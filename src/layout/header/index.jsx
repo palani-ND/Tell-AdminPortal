@@ -8,6 +8,7 @@ import { Box, Drawer, useMediaQuery } from '@mui/material';
 import Sidebar from '../sidebar';
 import { Context } from '../../context';
 import { PageHeader } from '../../elements/textStyles';
+import Transition from '../../components/transition';
 
 const Header = () => {
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
@@ -33,8 +34,9 @@ const Header = () => {
 							<MenuIcon />
 						</IconButton>
 					)}
-
-					<PageHeader>{selectedTitle}</PageHeader>
+					<Transition animate={selectedTitle}>
+						<PageHeader>{selectedTitle}</PageHeader>
+					</Transition>
 					<Box sx={{ flexGrow: 1 }} />
 				</Toolbar>
 			</AppBar>

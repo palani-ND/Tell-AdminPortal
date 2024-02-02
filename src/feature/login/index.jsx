@@ -22,14 +22,7 @@ const LoginScreen = () => {
 	const { alert, setAlert } = useContext(Context);
 
 	const validationSchema = yup.object().shape({
-		email: yup
-			.string()
-			.email('Invalid email')
-			.required('Email is required')
-			.matches(
-				/^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/,
-				'Incorrect email'
-			),
+		emailOrPhoneNumber: yup.string().required('Email or phone number is required'),
 		password: yup.string().required('Password is required'),
 	});
 
@@ -40,7 +33,7 @@ const LoginScreen = () => {
 	} = useForm({
 		resolver: yupResolver(validationSchema),
 		defaultValues: {
-			email: '',
+			emailOrPhoneNumber: '',
 			password: '',
 		},
 	});
@@ -145,14 +138,14 @@ const LoginScreen = () => {
 							>
 								<Stack>
 									<TextField
-										label="Email"
-										{...register('email', {
+										label="Email Or PhoneNumber"
+										{...register('emailOrPhoneNumber', {
 											required: true,
 										})}
 										variant="outlined"
 										fullWidth
 									/>
-									<ErrorToast error={errors?.email?.message} />
+									<ErrorToast error={errors?.emailOrPhoneNumber?.message} />
 								</Stack>
 								<Stack>
 									<TextField
