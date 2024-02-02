@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { Navigate, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { lazy } from 'react';
 import Layout from './layout';
 
 const ProtectedRoute = () => {
@@ -8,11 +7,28 @@ const ProtectedRoute = () => {
 	return <>{isAuthenticated === true ? <Layout /> : <Navigate to="/" />}</>;
 };
 
-const Login = lazy(() => import('./pages/login'));
-const Dashboard = lazy(() => import('./feature/dashboard/index'));
-const User = lazy(() => import('./feature/user/index'));
-const QuestionAndAnswer = lazy(() => import('./feature/questionAndAnswer/index'));
-const Settings = lazy(() => import('./feature/settings/index'));
+import Login from './pages/login';
+import Dashboard from './feature/dashboard/index';
+import User from './feature/user/index';
+import Quizans from './feature/questionAndAnswer/index';
+import Settings from './feature/settings/index';
+import { useEffect } from 'react';
+
+const Activetab = (WrappedComponent, componentName) => {
+	// eslint-disable-next-line react/display-name
+	return (props) => {
+		useEffect(() => {
+			localStorage.setItem('title', componentName);
+		}, [componentName]);
+
+		return <WrappedComponent {...props} />;
+	};
+};
+
+const MentionedDashboard = Activetab(Dashboard, 'dashboard');
+const MentionedUser = Activetab(User, 'user');
+const MentionedQuestionans = Activetab(Quizans, 'Question & Answer');
+const MentionedSettings = Activetab(Settings, 'Settings');
 
 export const routes = createBrowserRouter(
 	createRoutesFromElements(
@@ -21,10 +37,10 @@ export const routes = createBrowserRouter(
 				<Route path="/" element={<Login />} />
 
 				<Route element={<ProtectedRoute />}>
-					<Route path="/dashboard" element={<Dashboard />} />
-					<Route path="/user" element={<User />} />
-					<Route path="/question_and_answer" element={<QuestionAndAnswer />} />
-					<Route path="/settings" element={<Settings />} />
+					<Route path="/dashboard" element={<MentionedDashboard />} />
+					<Route path="/user" element={<MentionedUser />} />
+					<Route path="/question_and_answer" element={<MentionedQuestionans />} />
+					<Route path="/settings" element={<MentionedSettings />} />
 				</Route>
 			</Route>
 		</>

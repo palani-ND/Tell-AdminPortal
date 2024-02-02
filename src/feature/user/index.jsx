@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { PrimaryButton } from '../../elements/buttonStyles';
 import UserDataTable from '../../components/table/index';
-import UserForm from './userform';
+// import UserForm from './userform';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import Popup from 'reactjs-popup';
+// import Popup from 'reactjs-popup';
 
 const App = () => {
 	const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '1',
+			id: '2',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -29,7 +30,52 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '1',
+			id: '3',
+			name: 'John Doe',
+			Phone: '123-456-7890',
+			Department: 'Cardiology',
+			Level: 'level1',
+			Attempts: 3,
+			Status: 'Active',
+		},
+		{
+			id: '4',
+			name: 'John Doe',
+			Phone: '123-456-7890',
+			Department: 'Cardiology',
+			Level: 'level1',
+			Attempts: 3,
+			Status: 'Active',
+		},
+		{
+			id: '5',
+			name: 'John Doe',
+			Phone: '123-456-7890',
+			Department: 'Cardiology',
+			Level: 'level1',
+			Attempts: 3,
+			Status: 'Active',
+		},
+		{
+			id: '6',
+			name: 'John Doe',
+			Phone: '123-456-7890',
+			Department: 'Cardiology',
+			Level: 'level1',
+			Attempts: 3,
+			Status: 'Active',
+		},
+		{
+			id: '7',
+			name: 'John Doe',
+			Phone: '123-456-7890',
+			Department: 'Cardiology',
+			Level: 'level1',
+			Attempts: 3,
+			Status: 'Active',
+		},
+		{
+			id: '8',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -43,9 +89,9 @@ const App = () => {
 		setOpen(true);
 	};
 
-	const handleUserFormClose = () => {
-		setOpen(false);
-	};
+	// const handleUserFormClose = () => {
+	// 	setOpen(false);
+	// };
 
 	const Search = styled('div')(({ theme }) => ({
 		position: 'relative',
@@ -66,27 +112,18 @@ const App = () => {
 		padding: theme.spacing(0, 2),
 		height: '100%',
 		position: 'absolute',
-		pointerEvents: 'none',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		border: 'black',
 	}));
 
 	const StyledInputBase = styled(InputBase)(({ theme }) => ({
 		color: 'inherit',
 		width: '100%',
-		border: 'black',
 		'& .MuiInputBase-input': {
 			padding: theme.spacing(1, 1, 1, 0),
 			paddingLeft: `calc(1em + ${theme.spacing(4)})`,
 			transition: theme.transitions.create('width'),
-			[theme.breakpoints.up('sm')]: {
-				width: '12ch',
-				'&:focus': {
-					width: '20ch',
-				},
-			},
 		},
 	}));
 
@@ -94,44 +131,23 @@ const App = () => {
 		<>
 			<div
 				style={{
-					filter: open ? 'blur(5px)' : 'none',
-					transition: 'filter 0.3s ease',
+					display: 'flex',
+					flexWrap: 'wrap',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					marginBottom: '30px',
+					rowGap: '10px',
 				}}
 			>
-				<h1 style={{ color: 'GrayText' }}>User Data</h1>
-
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						marginBottom: '30px',
-					}}
-				>
-					<Search>
-						<SearchIconWrapper>
-							<SearchIcon />
-						</SearchIconWrapper>
-						<StyledInputBase placeholder="Search…" />
-					</Search>
-					<PrimaryButton onClick={handleAddUserClick}>Add new User</PrimaryButton>
-				</div>
-				<UserDataTable data={userData} />
+				<Search>
+					<SearchIconWrapper>
+						<SearchIcon />
+					</SearchIconWrapper>
+					<StyledInputBase placeholder="Search…" />
+				</Search>
+				<PrimaryButton onClick={handleAddUserClick}>Add new User</PrimaryButton>
 			</div>
-			<Popup
-				open={open}
-				onClose={handleUserFormClose}
-				contentStyle={{
-					background: '#fff',
-					padding: '20px',
-					borderRadius: '8px',
-					maxWidth: '400px',
-				}}
-			>
-				<>
-					<UserForm onClose={handleUserFormClose} />
-				</>
-			</Popup>
+			<UserDataTable data={userData} />
 		</>
 	);
 };

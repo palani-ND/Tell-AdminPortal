@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, Drawer,  useMediaQuery } from '@mui/material';
+import { Box, Drawer, useMediaQuery } from '@mui/material';
 import Sidebar from '../sidebar';
 import { Context } from '../../context';
 import { PageHeader } from '../../elements/textStyles';
@@ -20,14 +20,14 @@ const Header = () => {
 
 	return (
 		<>
-			<AppBar position="static" sx={{backgroundColor:'transparent'}} elevation={0}>
+			<AppBar position="static" sx={{ backgroundColor: 'transparent' }} elevation={0}>
 				<Toolbar>
 					{isSmallScreen && (
 						<IconButton
 							size="large"
 							edge="start"
 							aria-label="open drawer"
-							sx={{ mr: 1, color: 'inherit' }}
+							sx={{ mr: 1, color: 'GrayText', fontWeight: 'bold' }}
 							onClick={toggleDrawer}
 						>
 							<MenuIcon />
@@ -36,7 +36,6 @@ const Header = () => {
 
 					<PageHeader>{selectedTitle}</PageHeader>
 					<Box sx={{ flexGrow: 1 }} />
-					
 				</Toolbar>
 			</AppBar>
 
