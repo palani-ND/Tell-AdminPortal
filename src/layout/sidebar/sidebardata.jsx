@@ -8,20 +8,26 @@ export const Sidebardata = [
 		title: 'Dashboard',
 		icon: <DashboardOutlinedIcon />,
 		link: '/dashboard',
+		isSubData:false
 	},
 	{
 		title: 'User',
 		icon: <PeopleOutlinedIcon />,
 		link: '/user',
+		isSubData:false
+
 	},
 	{
-		title: 'Question & Answer',
+		title: 'Q & A',
 		icon: <DescriptionOutlinedIcon />,
-		link: '/quizans',
+		link: '/question_and_answer',
+		isSubData:true
+
 	},
 	{
 		title: 'Settings',
 		icon: <SettingsOutlinedIcon />,
 		link: '/settings',
+		isSubData:false
 	},
 ];

@@ -11,7 +11,7 @@ const ProtectedRoute = () => {
 const Login = lazy(() => import('./pages/login'));
 const Dashboard = lazy(() => import('./feature/dashboard/index'));
 const User = lazy(() => import('./feature/user/index'));
-const Quizans = lazy(() => import('./feature/Quizans/index'));
+const QuestionAndAnswer = lazy(() => import('./feature/questionAndAnswer/index'));
 const Settings = lazy(() => import('./feature/settings/index'));
 
 export const routes = createBrowserRouter(
@@ -23,7 +23,7 @@ export const routes = createBrowserRouter(
 				<Route element={<ProtectedRoute />}>
 					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/user" element={<User />} />
-					<Route path="/quizans" element={<Quizans />} />
+					<Route path="/question_and_answer" element={<QuestionAndAnswer />} />
 					<Route path="/settings" element={<Settings />} />
 				</Route>
 			</Route>
