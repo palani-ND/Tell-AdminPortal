@@ -3,6 +3,7 @@ import {
 	Accordion,
 	AccordionDetails,
 	AccordionSummary,
+	Collapse,
 	List,
 	ListItemButton,
 	ListItemIcon,
@@ -20,10 +21,15 @@ import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import AlertDialog from '../../components/logoutmodel/index';
 
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+
 const Sidebar = () => {
 	const location = useLocation();
-	const navigate = useNavigate();
+	const [open, setOpen] = useState(true);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+	const navigate = useNavigate();
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
@@ -102,41 +108,36 @@ const Sidebar = () => {
 								</>
 							) : (
 								<>
-									<Accordion
-										elevation={0}
-										sx={{
-											backgroundColor: '#F9F6EE',
-											width: '100%',
-											padding: 0,
-										}}
-									>
-										<AccordionSummary
-											sx={{ width: '100%', padding: 0, px: 0.5 }}
-											expandIcon={<ArrowDropDownIcon />}
-										>
+									<List sx={{padding:0}}>
+										<ListItemButton 
+											sx={{
+												width: '100%', px: 0.5,py:1.7,
+												display: 'flex',
+												justifyContent: 'space-between',
+												alignItems: 'center',
+											}}
+											onClick={() => setOpen(!open)}>
+										
 											<Typography
 												sx={{
 													fontWeight: 'bold',
 													fontSize: '18px',
 													color: 'grey',
 													display: 'flex',
-													width: '47%',
+													width: '43%',
 													justifyContent: 'space-between',
 													alignItems: 'center',
 												}}
 											>
 												{item.icon} {item.title}
 											</Typography>
-										</AccordionSummary>
-										<AccordionDetails
-											sx={{
-												padding: 0,
-												fontSize: '18px',
-												fontWeight: 'bolder',
-											}}
-										>
-											<List sx={{ fontSize: '18px', fontWeight: 'bolder' }}>
-												<ListItemButton
+
+											{open ? <ExpandLess /> : <ExpandMore />}
+										</ListItemButton>
+										<Collapse in={open} timeout="auto" unmountOnExit>
+											<List  disablePadding>
+												<ListItemButton 
+
 													onClick={() => navigate(item.link[0])}
 												>
 													<ListItemIcon>
@@ -170,8 +171,8 @@ const Sidebar = () => {
 													</Typography>
 												</ListItemButton>
 											</List>
-										</AccordionDetails>
-									</Accordion>
+										</Collapse>
+									</List>
 								</>
 							)}
 						</>

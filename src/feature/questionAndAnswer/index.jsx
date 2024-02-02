@@ -1,7 +1,5 @@
-import React from 'react';
-
-const Quizans = () => {
+const QuestionAndAnswer = () => {
 	return <div>Question and answer component</div>;
 };
 
-export default Quizans;
+export default QuestionAndAnswer;

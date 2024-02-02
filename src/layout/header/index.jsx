@@ -6,8 +6,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
 import { PageHeader } from '../../elements/textStyles';
+import Transition from '../../components/transition';
+import Sidebar from '../sidebar/index';
 import { Context } from '../../context';
-import Sidebar from '../sidebar';
 
 const Header = () => {
 	const isSmallScreen = useMediaQuery('(max-width:960px)');
@@ -33,8 +34,9 @@ const Header = () => {
 							<MenuIcon />
 						</IconButton>
 					)}
-
-					<PageHeader>{selectedTitle}</PageHeader>
+					<Transition animate={selectedTitle}>
+						<PageHeader>{selectedTitle}</PageHeader>
+					</Transition>
 					<Box sx={{ flexGrow: 1 }} />
 				</Toolbar>
 			</AppBar>
