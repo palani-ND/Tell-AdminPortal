@@ -3,18 +3,15 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper } from '@mui/material';
 
-const CustomDataGrid = ({ data, cloumn }) => {
-	const columns = cloumn.map((data) => {
-		const obj = {
-			field: data,
-			headerName: data,
-			headerAlign: 'left',
-			align: 'left',
-			flex: 1,
-		};
-		return obj;
-	});
-
+const CustomDataGrid = ({
+	isLoading,
+	data,
+	cloumn,
+	pageSize,
+	onPageChange,
+	onPageSizeChange,
+	rowCount,
+}) => {
 	return (
 		<Paper
 			elevation={9}
@@ -25,13 +22,25 @@ const CustomDataGrid = ({ data, cloumn }) => {
 			}}
 		>
 			<DataGrid
+				loading={isLoading}
+				getRowId={(row) => row._id}
+				rows={data}
+				columns={cloumn}
 				columnHeaderHeight={66}
 				rowHeight={45}
 				disableColumnFilter={true}
 				disableColumnMenu={true}
 				disableRowSelectionOnClick={true}
-				rows={data}
-				columns={columns}
+				rowCount={rowCount}
+				initialState={{
+					...data.initialState,
+					pagination: { paginationModel: { pageSize: pageSize } },
+				}}
+				pageSizeOptions={[5,10,20,50,100]}
+				pagination
+				onPaginationModelChange={onPageChange}
+				
+				onPageSizeChange={onPageSizeChange}
 				sx={{
 					fontSize: '16px',
 					'& .MuiDataGrid-columnHeaderTitle': {
