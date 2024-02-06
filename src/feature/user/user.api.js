@@ -8,11 +8,11 @@ export const getNurse = (pageNo, pageSize, value) => {
 			try {
 				await tokenExpires();
 
-				const SearchUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}&search=${value}`;
+				const SearchUrl = `/admin/getAllUser?pageNo=${
+					pageNo + 1
+				}&pageSize=${pageSize}&search=${value}`;
 				const PaginatonUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}`;
-				const response = await headerWithToken.get(
-					value == '' ? PaginatonUrl : SearchUrl
-				);
+				const response = await headerWithToken.get(value == '' ? PaginatonUrl : SearchUrl);
 				// console.log(response.data);
 				return response.data;
 			} catch (response) {
@@ -29,11 +29,11 @@ export const getAdmin = (pageNo, pageSize, value) => {
 			try {
 				await tokenExpires();
 
-				const SearchUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}&search=${value}`;
+				const SearchUrl = `/admin/getAllUser?pageNo=${
+					pageNo + 1
+				}&pageSize=${pageSize}&search=${value}`;
 				const PaginatonUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}`;
-				const response = await headerWithToken.get(
-					value == '' ? PaginatonUrl : SearchUrl
-				);
+				const response = await headerWithToken.get(value == '' ? PaginatonUrl : SearchUrl);
 				// console.log(response.data);
 				return response.data;
 			} catch (response) {
@@ -42,4 +42,3 @@ export const getAdmin = (pageNo, pageSize, value) => {
 		},
 	});
 };
-
