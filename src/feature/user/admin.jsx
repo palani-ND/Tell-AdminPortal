@@ -9,7 +9,7 @@ const Admin = () => {
 		{
 			field: 'fullName',
 			headerName: 'fullName',
-			width: 220,
+			width: 300,
 			// flex: 1,
 			headerAlign: 'center',
 			align: 'center',
@@ -17,7 +17,7 @@ const Admin = () => {
 		{
 			field: 'email',
 			headerName: 'email',
-			width: 250,
+			width: 300,
 			// flex: 1,
 			headerAlign: 'center',
 			align: 'center',
@@ -25,35 +25,35 @@ const Admin = () => {
 		{
 			field: 'phoneNumber',
 			headerName: 'phoneNumber',
-			width: 220,
+			width: 300,
 			// flex: 1,
 			headerAlign: 'center',
 			align: 'center',
 		},
-		{
-			field: 'level',
-			headerName: 'level',
-			width: 160,
-			// flex: 1,
-			headerAlign: 'center',
-			align: 'center',
-		},
+		// {
+		// 	field: 'level',
+		// 	headerName: 'level',
+		// 	width: 160,
+		// 	// flex: 1,
+		// 	headerAlign: 'center',
+		// 	align: 'center',
+		// },
 		{
 			field: 'isActive',
 			headerName: 'Active',
-			width: 160,
+			width: 250,
 			// flex: 1,
 			headerAlign: 'center',
 			align: 'center',
 		},
-		{
-			field: 'totalApplicationTime',
-			headerName: 'TotalApplicationTime',
-			width: 160,
-			// flex: 1,
-			headerAlign: 'center',
-			align: 'center',
-		},
+		// {
+		// 	field: 'totalApplicationTime',
+		// 	headerName: 'TotalApplicationTime',
+		// 	width: 160,
+		// 	// flex: 1,
+		// 	headerAlign: 'center',
+		// 	align: 'center',
+		// },
 	];
 
 	const [currentPage, setCurrentPage] = useState(0);
@@ -115,13 +115,13 @@ const Admin = () => {
 					onPageSizeChange={pageSizeChange}
 					pageSize={pageSize}
 					rowCount={
-						data?.responseObj?.responseDataParams?.data?.totalUsers
-							? data?.responseObj?.responseDataParams?.data?.totalUsers
+						data?.responseObj?.responseDataParams?.data?.totalAdmins
+							? data?.responseObj?.responseDataParams?.data?.totalAdmins
 							: 0
 					}
 					data={
-						data?.responseObj?.responseDataParams?.data?.users
-							? data?.responseObj?.responseDataParams?.data?.users
+						data?.responseObj?.responseDataParams?.data?.admins
+							? data?.responseObj?.responseDataParams?.data?.admins
 							: []
 					}
 				/>

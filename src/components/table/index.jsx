@@ -34,11 +34,15 @@ const CustomDataGrid = ({
 				rowCount={rowCount}
 				initialState={{
 					...data.initialState,
-					pagination: { paginationModel: { pageSize: pageSize } },
+					pagination: {
+						...data.initialState?.pagination,
+						paginationModel: { pageSize: pageSize },
+					},
 				}}
 				pageSizeOptions={[5, 10, 20, 50, 100]}
 				pagination
 				onPaginationModelChange={onPageChange}
+				paginationMode="server"
 				onPageSizeChange={onPageSizeChange}
 				sx={{
 					fontSize: '16px',

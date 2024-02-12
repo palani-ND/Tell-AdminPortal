@@ -62,23 +62,37 @@ const Nurse = () => {
 
 	const { data, isLoading } = getNurse(currentPage, pageSize, values);
 
+	// const handlePageChange = (params) => {
+	// 	setCurrentPage(params.page);
+	// 	console.log(params);
+	// 	// if (pageSize !== params.pageSize) {
+	// 	// 	setPageSize(params.pageSize);
+	// 	// }
+	// 	// if (currentPage !== params.page) {
+	// 	// 	setCurrentPage(params.page);
+	// 	// }
+	// 	console.log(
+	// 		`Calling getNurse with page: ${params.page}, pageSize: ${pageSize}`
+	// 	);
+
+	// 	getNurse(params.page, pageSize, values);
+	// };
+
 	const handlePageChange = (params) => {
-		// // console.log(params);
-		// if (pageSize !== params.pageSize) {
-		// 	setPageSize(params.pageSize);
-		// }
-		// if (currentPage !== params.page) {
-		// 	setCurrentPage(params.page);
-		// }
+		// console.log(params);
 		setCurrentPage(params.page);
-		// setPageSize(params.pageSize);
+		// console.log(` page: ${params.page}, pageSize: ${pageSize}`);
+		setPageSize(params.pageSize);
+		// console.log(` page: ${params.page}, pageSize: ${params.pageSize}`);
 	};
 
-	const pageSizeChange = (params) => {
-		// console.log(params);
-		// setCurrentPage(params.page);
-		setPageSize(params.pageSize);
-	};
+	// const pageSizeDropdown = (params) => {
+	// 	console.log(params);
+	// 	setPageSize(params.pageSize);
+	// 	console.log(
+	// 		`currentPage: ${currentPage}, pageSize: ${params.pageSize},`
+	// 	); // Debugging
+	// };
 
 	const handleSearchChange = (event) => {
 		const inputValue = event.target.value;
@@ -117,7 +131,7 @@ const Nurse = () => {
 						isLoading={isLoading}
 						cloumn={cloumn}
 						onPageChange={handlePageChange}
-						onPageSizeChange={pageSizeChange}
+						// onPageSizeChange={pageSizeDropdown}
 						pageSize={pageSize}
 						rowCount={
 							data?.responseObj?.responseDataParams?.data?.totalUsers

@@ -8,8 +8,7 @@ export const getNurse = (pageNo, pageSize, value) => {
 			try {
 				await tokenExpires();
 
-				const SearchUrl = `/admin/getAllUser?pageNo=${
-					pageNo + 1
+				const SearchUrl = `/admin/getAllUser?pageNo=${pageNo + 1
 				}&pageSize=${pageSize}&search=${value}`;
 				const PaginatonUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}`;
 				const response = await headerWithToken.get(value == '' ? PaginatonUrl : SearchUrl);
@@ -29,10 +28,9 @@ export const getAdmin = (pageNo, pageSize, value) => {
 			try {
 				await tokenExpires();
 
-				const SearchUrl = `/admin/getAllUser?pageNo=${
-					pageNo + 1
+				const SearchUrl = `/admin/getAllAdmin?pageNo=${pageNo + 1
 				}&pageSize=${pageSize}&search=${value}`;
-				const PaginatonUrl = `/admin/getAllUser?pageNo=${pageNo + 1}&pageSize=${pageSize}`;
+				const PaginatonUrl = `/admin/getAllAdmin?pageNo=${pageNo + 1}&pageSize=${pageSize}`;
 				const response = await headerWithToken.get(value == '' ? PaginatonUrl : SearchUrl);
 				// console.log(response.data);
 				return response.data;
