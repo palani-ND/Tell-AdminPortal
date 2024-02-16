@@ -3,19 +3,10 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper } from '@mui/material';
 
-const CustomDataGrid = ({ data,cloumn }) => {
+const CustomDataGrid = ({ data, column }) => {
 
 
-	const columns = cloumn.map((data) => {
-		const obj = {
-			field: data,
-			headerName: data,
-			headerAlign: 'left',
-			align: 'left',
-			flex: 1,
-		};
-		return obj;
-	});
+
 
 	return (
 		<Paper elevation={9}
@@ -32,7 +23,8 @@ const CustomDataGrid = ({ data,cloumn }) => {
 				disableColumnMenu={true}
 				disableRowSelectionOnClick={true}
 				rows={data}
-				columns={columns}
+				columns={column}
+				getRowId={(row) =>  row._id}
 				sx={{
 					fontSize: '16px',
 					'& .MuiDataGrid-columnHeaderTitle': {

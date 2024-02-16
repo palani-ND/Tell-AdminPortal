@@ -2,13 +2,9 @@
 import React, { useState } from 'react';
 import { PrimaryButton } from '../../elements/buttonStyles';
 import CustomDataGrid from '../../components/table/index';
-// import UserForm from './userform';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import { Box, Grid, IconButton, InputAdornment, Tab, Tabs, TextField } from '@mui/material';
+import { Box, Grid, InputAdornment, Tab, Tabs, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { motion, AnimatePresence } from 'framer-motion';
 import Transition from '../../components/transition';
 
 
@@ -21,9 +17,11 @@ const App = () => {
 
 	const cloumn = ['name', 'Phone', 'Department', 'Level', 'Status', 'Attempts'];
 
+
 	const userData = [
+
 		{
-			id: '1',
+			_id: '1',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -32,7 +30,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '2',
+			_id: '2',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -41,7 +39,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '3',
+			_id: '3',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -50,7 +48,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '4',
+			_id: '4',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -59,7 +57,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '5',
+			_id: '5',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -68,7 +66,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '6',
+			_id: '6',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -77,7 +75,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '7',
+			_id: '7',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -86,7 +84,7 @@ const App = () => {
 			Status: 'Active',
 		},
 		{
-			id: '8',
+			_id: '8',
 			name: 'John Doe',
 			Phone: '123-456-7890',
 			Department: 'Cardiology',
@@ -135,8 +133,6 @@ const App = () => {
 			</Grid>
 			<Transition animate={isNurse}>
 
-
-
 				<Grid item width={'100%'} rowGap={2} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} display={'flex'}>
 					<TextField sx={{ alignSelf: 'flex-start' }}
 						variant='outlined'
@@ -150,9 +146,10 @@ const App = () => {
 							),
 						}} />
 
-					<CustomDataGrid cloumn={cloumn} data={userData} />
-
+					<CustomDataGrid column={cloumn} data={userData} />
 				</Grid>
+
+
 			</Transition>
 
 		</Grid>
