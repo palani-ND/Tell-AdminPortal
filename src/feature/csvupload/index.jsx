@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { uploadFileToBackend } from './questionUplpad.api';
 import { Grid } from '@mui/material';
@@ -17,8 +16,8 @@ const CsvUpload = () => {
 	const cloumn = ['answer', 'question', 'scenario', '_id'];
 	return (
 		<Grid container width={'100%'} flexDirection={'column'} rowGap={3}>
-
-			<Grid item
+			<Grid
+				item
 				width={'100%'}
 				flexWrap={'wrap'}
 				alignItems={'center'}
@@ -33,21 +32,23 @@ const CsvUpload = () => {
 				</form>
 			</Grid>
 
-			{file !== null &&
+			{file !== null && (
 				<Transition animate={file}>
-					<Grid item width={'100%'} rowGap={2} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} display={'flex'}>
+					<Grid
+						item
+						width={'100%'}
+						rowGap={2}
+						flexDirection={'column'}
+						alignItems={'center'}
+						justifyContent={'center'}
+						display={'flex'}
+					>
 						<CustomDataGrid cloumn={cloumn} data={file} />
 					</Grid>
 				</Transition>
-			}
+			)}
 		</Grid>
-
-
 	);
 };
 
 export default CsvUpload;
-
-
-
-
