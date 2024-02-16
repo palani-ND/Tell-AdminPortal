@@ -1,4 +1,4 @@
-import FileUploadScreen from '../../feature/fileupload';
+import FileUploadScreen from '../../feature/csvupload';
 const FileUpload = () => {
 	return (
 		<>
